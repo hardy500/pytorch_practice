@@ -1,0 +1,29 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+Accuracy	c1/w2/logistic_regression.py	/^from torchmetrics.classification import Accuracy$/;"	i
+DataLoader	c1/w2/logistic_regression.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+LR	c1/w2/logistic_regression.py	/^class LR(nn.Module):$/;"	c
+TensorDataset	c1/w2/logistic_regression.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+__init__	c1/w2/logistic_regression.py	/^  def __init__(self, in_features, out_features):$/;"	m	class:LR
+forward	c1/w2/logistic_regression.py	/^  def forward(self, x):$/;"	m	class:LR
+h5py	c1/w2/lr_utils.py	/^import h5py$/;"	i
+load_dataset	c1/w2/logistic_regression.py	/^from lr_utils import load_dataset$/;"	i
+load_dataset	c1/w2/lr_utils.py	/^def load_dataset():$/;"	f
+nn	c1/w2/logistic_regression.py	/^from torch import nn$/;"	i
+np	c1/w2/lr_utils.py	/^import numpy as np$/;"	i
+test_loader	c1/w2/logistic_regression.py	/^test_loader = DataLoader(test_set, batch_size=1)$/;"	v
+test_set	c1/w2/logistic_regression.py	/^test_set    = TensorDataset(x_test, y_test)$/;"	v
+test_step	c1/w2/logistic_regression.py	/^def test_step(model, test_loader, loss_fn, acc_fn):$/;"	f
+torch	c1/w2/logistic_regression.py	/^import torch$/;"	i
+train	c1/w2/logistic_regression.py	/^def train(model, train_loader, test_loader, optimizer, loss_fn, acc_fn, epochs):$/;"	f
+train_loader	c1/w2/logistic_regression.py	/^train_loader = DataLoader(train_set, batch_size=1, shuffle=True)$/;"	v
+train_set	c1/w2/logistic_regression.py	/^train_set    = TensorDataset(x_train, y_train)$/;"	v
+train_step	c1/w2/logistic_regression.py	/^def train_step(model, train_loader, optimizer, loss_fn, acc_fn):$/;"	f
+x_test	c1/w2/logistic_regression.py	/^x_test = torch.from_numpy(x_test_og).float()$/;"	v
+x_train	c1/w2/logistic_regression.py	/^x_train = torch.from_numpy(x_train_og).float()$/;"	v
+y_test	c1/w2/logistic_regression.py	/^y_test = torch.from_numpy(y_test_og.T).float()$/;"	v
+y_train	c1/w2/logistic_regression.py	/^y_train = torch.from_numpy(y_train_og.T).float()$/;"	v
