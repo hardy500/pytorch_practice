@@ -3,22 +3,24 @@ import torch
 from torch import nn
 from torchmetrics.classification import Accuracy
 from torch.utils.data import DataLoader, TensorDataset
+# GOAL: Identifying cat vs non-cat (Binary classification)
 
 #### Preprocesing data ####
-# input size x (N, H, W, C), input size y (1, N)
-x_train_og, y_train_og, x_test_og, y_test_og, classes = load_dataset()
+def load_data():
+  x_train_og, y_train_og, x_test_og, y_test_og, classes = load_dataset()
 
-x_train = torch.from_numpy(x_train_og).float()
-y_train = torch.from_numpy(y_train_og.T).float()
+  x_train = torch.from_numpy(x_train_og).float()
+  y_train = torch.from_numpy(y_train_og.T).float()
 
-x_test = torch.from_numpy(x_test_og).float()
-y_test = torch.from_numpy(y_test_og.T).float()
+  x_test = torch.from_numpy(x_test_og).float()
+  y_test = torch.from_numpy(y_test_og.T).float()
 
-train_set    = TensorDataset(x_train, y_train)
-train_loader = DataLoader(train_set, batch_size=1, shuffle=True)
+  train_set    = TensorDataset(x_train, y_train)
+  train_loader = DataLoader(train_set, batch_size=1, shuffle=True)
 
-test_set    = TensorDataset(x_test, y_test)
-test_loader = DataLoader(test_set, batch_size=1)
+  test_set    = TensorDataset(x_test, y_test)
+  test_loader = DataLoader(test_set, batch_size=1)
+  return train_loader, test_loader
 
 #### Define model ####
 
@@ -81,6 +83,7 @@ def train(model, train_loader, test_loader, optimizer, loss_fn, acc_fn, epochs):
 if __name__ == "__main__":
   in_features  = 64*64*3
   out_features = 1
+  train_loader, test_loader = load_data()
 
   model     = LR(in_features, out_features)
   loss_fn   = nn.BCELoss()
