@@ -102,7 +102,7 @@ def test_dev_split(test_set, n_folds):
 
 def train(model, train_loader, test_set, optimizer, loss_fn, acc_fn, epochs, n_folds):
   for i in range(n_folds):
-    # Split data into train and dev sets for this fold
+    # Split data into test and dev sets for this fold
     test_dataset, dev_dataset = test_dev_split(test_set, n_folds)
 
     # Create data loader for train and dev sets
