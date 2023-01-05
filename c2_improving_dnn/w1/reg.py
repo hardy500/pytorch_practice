@@ -20,7 +20,7 @@ def load_data():
   y_test       = torch.from_numpy(y_test_og.T).float()
   test_set     = TensorDataset(x_test, y_test)
   test_loader  = DataLoader(test_set, batch_size=32)
-  return train_loader, test_loader
+  return train_loader, train_set, test_loader, test_set
 
 #### Define model ####
 
@@ -80,13 +80,13 @@ def train_step(model, train_loader, optimizer, loss_fn, acc_fn):
   train_loss, train_acc = 0, 0
   for x, y in train_loader:
     model.train()
+    optimizer.zero_grad()
 
     pred        = model(x)
     loss        = loss_fn(pred, y)
     train_loss += loss
     train_acc  += acc_fn(pred, y)
 
-    optimizer.zero_grad()
     loss.backward()
     optimizer.step()
 
@@ -94,18 +94,37 @@ def train_step(model, train_loader, optimizer, loss_fn, acc_fn):
   train_acc  /= len(train_loader)
   return train_loss, train_acc
 
-def train(model, train_loader, test_loader, optimizer, loss_fn, acc_fn, epochs):
-  for epoch in range(epochs+1):
-    train_loss, train_acc = train_step(model, train_loader, optimizer, loss_fn, acc_fn)
-    test_loss , test_acc  = test_step(model, test_loader, loss_fn, acc_fn)
+def test_dev_split(test_set, n_folds):
+    test_size = int((n_folds-1) / n_folds * len(test_set))
+    dev_size  = len(test_set) - test_size
+    test_dataset, dev_dataset = torch.utils.data.random_split(test_set, [test_size, dev_size])
+    return test_dataset, dev_dataset
 
-    if epoch % 10 == 0:
-      print(f"[{epoch}/{epochs}] Train loss: {train_loss:.3f} | Train acc: {train_acc:.3f} || Test loss: {test_loss:.3f} | Test acc: {test_acc:.3f}")
+def train(model, train_loader, test_set, optimizer, loss_fn, acc_fn, epochs, n_folds):
+  for i in range(n_folds):
+    # Split data into train and dev sets for this fold
+    test_dataset, dev_dataset = test_dev_split(test_set, n_folds)
+
+    # Create data loader for train and dev sets
+    test_dataloader  = DataLoader(test_dataset, batch_size=1)
+    dev_dataloader   = DataLoader(dev_dataset, batch_size=1)
+
+    for epoch in range(epochs+1):
+      train_loss, train_acc = train_step(model, train_loader, optimizer, loss_fn, acc_fn)
+      dev_loss, dev_acc     = test_step(model, dev_dataloader, loss_fn, acc_fn)
+      test_loss, test_acc   = test_step(model, test_dataloader, loss_fn, acc_fn)
+
+      print(f"[{epoch}/{epochs}] Train loss: {train_loss:.3f} | Train acc: {train_acc:.3f}\
+              || Dev loss: {dev_loss:.3f} | Dev acc: {dev_acc:.3f}\
+              || Test loss: {test_loss:.3f} | Test acc: {test_acc:.3f}")
+    print()
 
 if __name__ == "__main__":
   torch.manual_seed(0)
+  train_loader, train_set, _, test_set = load_data()
 
-  train_loader, test_loader = load_data()
+  n_folds      = 10 # number of folds for k-fold cross-validation
+  lambd        = 0.0000001 # hyperparameter for l2 reg
   in_features  = 2
   out_features = 1
   hidden_units = 5
@@ -114,12 +133,7 @@ if __name__ == "__main__":
   model     = Net(in_features, out_features, hidden_units, n_layer)
   loss_fn   = nn.BCELoss()
   acc_fn    = Accuracy(task='binary', num_classes=out_features)
+  optimizer = torch.optim.Adam(model.parameters(), lr=0.03, weight_decay=lambd)
 
-  # Tryout different learning rates
-  lrs = [0.03]
-  epochs = 80
-  lambd = 0.00000023 # hyperparameter for l2 reg
-  for lr in lrs:
-    print(f'lr: {lr}')
-    optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=lambd)
-    train(model, train_loader, test_loader, optimizer, loss_fn, acc_fn, epochs)
+  epochs       = 10
+  train(model, train_loader, test_set, optimizer, loss_fn, acc_fn, epochs, n_folds)
