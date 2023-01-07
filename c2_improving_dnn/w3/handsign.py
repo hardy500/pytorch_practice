@@ -91,25 +91,23 @@ def test_dev_split(test_set, n_folds):
     test_dataset, dev_dataset = torch.utils.data.random_split(test_set, [test_size, dev_size])
     return test_dataset, dev_dataset
 
-def train(model, test_dataloader, training_set, optimizer, loss_fn, acc_fn, epochs, n_folds, lr):
+def train(model, train_dataloader, test_set, optimizer, loss_fn, acc_fn, epochs, n_folds, lr):
   for i in range(n_folds):
     # Split data into test and dev sets for this fold
-    train_dataset, dev_dataset = test_dev_split(training_set, n_folds)
+    test_dataset, dev_dataset = test_dev_split(test_set, n_folds)
 
     # Create data loader for train and dev sets
-    train_dataloader  = DataLoader(train_dataset, batch_size=64, shuffle=True)
+    test_dataloader  =  DataLoader(test_dataset, batch_size=64, shuffle=False)
     dev_dataloader    = DataLoader(dev_dataset, batch_size=64, shuffle=False)
 
     print(f"lr: {lr}")
     for epoch in range(epochs+1):
       train_loss, train_acc = train_step(model, train_dataloader, optimizer, loss_fn, acc_fn)
       dev_loss , dev_acc    = test_step(model, dev_dataloader, loss_fn, acc_fn)
-      test_loss, test_acc   = test_step(model, test_dataloader, loss_fn, acc_fn)
-
       if epoch % 10 == 0:
         print(f"[{epoch}/{epochs}] Train loss: {train_loss:.3f} | Train acc: {train_acc:.3f}\
-               || Dev loss: {dev_loss:.3f} | Dev acc: {dev_acc:.3f}\
-               || Test loss: {test_loss:.3f} | Dev acc: {test_acc:.3f}")
+               || Dev loss: {dev_loss:.3f} | Dev acc: {dev_acc:.3f}")\
+
     print()
 
 #### Preprocessing data ####
@@ -133,12 +131,12 @@ import random
 
 in_features  = 64*64*3
 out_features = 6
-hidden_units = 5
+hidden_units = 10
 n_layer      = 2
 
-lambd        = 0.001   # hyperparameter for l2 reg
-k_folds      = 5       # k-fold cross-validation
-momentum     = 0.99
+lambd        = 0.12121   # hyperparameter for l2 reg
+k_folds      = 5         # k-fold cross-validation
+momentum     = 0.
 
 model     = Net(in_features, out_features, hidden_units, n_layer)
 loss_fn   = nn.CrossEntropyLoss()
@@ -147,9 +145,15 @@ acc_fn    = Accuracy(task='multiclass', num_classes=out_features)
 
 # torch.manual_seed(0)
 # Tryout random learning rate
-for i in range(5):
-  r = -4*np.random.rand()
-  lr = 10**r
-  optimizer = torch.optim.SGD(model.parameters(), lr=lr, momentum=momentum, weight_decay=lambd)
-  epochs       = 30
-  train(model, test_loader, train_set, optimizer, loss_fn, acc_fn, epochs, k_folds, lr)
+#for i in range(5):
+#r = -4*np.random.rand()
+#lr = 10**r
+lr = 0.005
+optimizer    = torch.optim.SGD(model.parameters(), lr=lr, momentum=momentum, weight_decay=lambd)
+epochs       = 100
+train(model, train_loader, test_set, optimizer, loss_fn, acc_fn, epochs, k_folds, lr)
+
+# Eval model
+test_loss, test_acc = test_step(model, test_loader, loss_fn, acc_fn)
+print(f"Test loss: {test_loss:.3f} | Test acc: {test_acc:.3f}")
+# Best result so far: [100/100] Train loss: 0.357 | Train acc: 1.000   || Dev loss: 0.603 | Dev acc: 0.917 Test loss: 0.560 | Test acc: 0.916
