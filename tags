@@ -4,26 +4,260 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-Accuracy	c1/w2/logistic_regression.py	/^from torchmetrics.classification import Accuracy$/;"	i
-DataLoader	c1/w2/logistic_regression.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
-LR	c1/w2/logistic_regression.py	/^class LR(nn.Module):$/;"	c
-TensorDataset	c1/w2/logistic_regression.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
-__init__	c1/w2/logistic_regression.py	/^  def __init__(self, in_features, out_features):$/;"	m	class:LR
-forward	c1/w2/logistic_regression.py	/^  def forward(self, x):$/;"	m	class:LR
-h5py	c1/w2/lr_utils.py	/^import h5py$/;"	i
-load_dataset	c1/w2/logistic_regression.py	/^from lr_utils import load_dataset$/;"	i
-load_dataset	c1/w2/lr_utils.py	/^def load_dataset():$/;"	f
-nn	c1/w2/logistic_regression.py	/^from torch import nn$/;"	i
-np	c1/w2/lr_utils.py	/^import numpy as np$/;"	i
-test_loader	c1/w2/logistic_regression.py	/^test_loader = DataLoader(test_set, batch_size=1)$/;"	v
-test_set	c1/w2/logistic_regression.py	/^test_set    = TensorDataset(x_test, y_test)$/;"	v
-test_step	c1/w2/logistic_regression.py	/^def test_step(model, test_loader, loss_fn, acc_fn):$/;"	f
-torch	c1/w2/logistic_regression.py	/^import torch$/;"	i
-train	c1/w2/logistic_regression.py	/^def train(model, train_loader, test_loader, optimizer, loss_fn, acc_fn, epochs):$/;"	f
-train_loader	c1/w2/logistic_regression.py	/^train_loader = DataLoader(train_set, batch_size=1, shuffle=True)$/;"	v
-train_set	c1/w2/logistic_regression.py	/^train_set    = TensorDataset(x_train, y_train)$/;"	v
-train_step	c1/w2/logistic_regression.py	/^def train_step(model, train_loader, optimizer, loss_fn, acc_fn):$/;"	f
-x_test	c1/w2/logistic_regression.py	/^x_test = torch.from_numpy(x_test_og).float()$/;"	v
-x_train	c1/w2/logistic_regression.py	/^x_train = torch.from_numpy(x_train_og).float()$/;"	v
-y_test	c1/w2/logistic_regression.py	/^y_test = torch.from_numpy(y_test_og.T).float()$/;"	v
-y_train	c1/w2/logistic_regression.py	/^y_train = torch.from_numpy(y_train_og.T).float()$/;"	v
+Accuracy	c1_nn_and_dl/w2/logistic_regression.py	/^from torchmetrics.classification import Accuracy$/;"	i
+Accuracy	c1_nn_and_dl/w3/planar_data_classification.py	/^from torchmetrics.classification import Accuracy$/;"	i
+Accuracy	c1_nn_and_dl/w4/dnn.py	/^from torchmetrics.classification import Accuracy$/;"	i
+Accuracy	c2_improving_dnn/w1/reg.py	/^from torchmetrics.classification import Accuracy$/;"	i
+Accuracy	c2_improving_dnn/w2/opt.py	/^from torchmetrics.classification import Accuracy$/;"	i
+Accuracy	c2_improving_dnn/w3/handsign.py	/^from torchmetrics.classification import Accuracy$/;"	i
+Accuracy	c4_cnn/w2/data_setup.py	/^from torchmetrics.classification import Accuracy$/;"	i
+Accuracy	c4_cnn/w2/train_0.py	/^from torchmetrics import Accuracy$/;"	i
+CNN_0	c4_cnn/w2/model.py	/^class CNN_0(nn.Module):$/;"	c
+CNN_0	c4_cnn/w2/train_0.py	/^from model import CNN_0$/;"	i
+DataLoader	c1_nn_and_dl/w2/logistic_regression.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+DataLoader	c1_nn_and_dl/w3/planar_data_classification.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+DataLoader	c1_nn_and_dl/w4/dnn.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+DataLoader	c2_improving_dnn/w1/reg.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+DataLoader	c2_improving_dnn/w2/opt.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+DataLoader	c2_improving_dnn/w3/handsign.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+DataLoader	c4_cnn/w2/data_setup.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+EPOCHS	c4_cnn/w2/train_0.py	/^EPOCHS    = 10$/;"	v
+HiddenLayer	c1_nn_and_dl/w3/planar_data_classification.py	/^class HiddenLayer(nn.Module):$/;"	c
+HiddenLayer	c1_nn_and_dl/w4/dnn.py	/^class HiddenLayer(nn.Module):$/;"	c
+HiddenLayer	c2_improving_dnn/w1/reg.py	/^class HiddenLayer(nn.Module):$/;"	c
+HiddenLayer	c2_improving_dnn/w2/opt.py	/^class HiddenLayer(nn.Module):$/;"	c
+HiddenLayer	c2_improving_dnn/w3/handsign.py	/^class HiddenLayer(nn.Module):$/;"	c
+LR	c1_nn_and_dl/w2/logistic_regression.py	/^class LR(nn.Module):$/;"	c
+LR	c4_cnn/w2/train_0.py	/^LR        = 0.001$/;"	v
+L_model_backward	c1_nn_and_dl/w4/dnn_utils.py	/^def L_model_backward(AL, Y, caches):$/;"	f
+L_model_forward	c1_nn_and_dl/w4/dnn_utils.py	/^def L_model_forward(X, parameters):$/;"	f
+N_CLASSES	c4_cnn/w2/train_0.py	/^N_CLASSES = 1$/;"	v
+Net	c1_nn_and_dl/w3/planar_data_classification.py	/^class Net(nn.Module):$/;"	c
+Net	c1_nn_and_dl/w4/dnn.py	/^class Net(nn.Module):$/;"	c
+Net	c2_improving_dnn/w1/reg.py	/^class Net(nn.Module):$/;"	c
+Net	c2_improving_dnn/w2/opt.py	/^class Net(nn.Module):$/;"	c
+Net	c2_improving_dnn/w3/handsign.py	/^class Net(nn.Module):$/;"	c
+StepLR	c2_improving_dnn/w2/opt.py	/^from torch.optim.lr_scheduler import StepLR$/;"	i
+StepLR	c2_improving_dnn/w3/handsign.py	/^from torch.optim.lr_scheduler import StepLR$/;"	i
+TensorDataset	c1_nn_and_dl/w2/logistic_regression.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+TensorDataset	c1_nn_and_dl/w3/planar_data_classification.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+TensorDataset	c1_nn_and_dl/w4/dnn.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+TensorDataset	c2_improving_dnn/w1/reg.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+TensorDataset	c2_improving_dnn/w2/opt.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+TensorDataset	c2_improving_dnn/w3/handsign.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+TensorDataset	c4_cnn/w2/data_setup.py	/^from torch.utils.data import DataLoader, TensorDataset$/;"	i
+__init__	c1_nn_and_dl/w2/logistic_regression.py	/^  def __init__(self, in_features, out_features):$/;"	m	class:LR
+__init__	c1_nn_and_dl/w3/planar_data_classification.py	/^  def __init__(self, in_features, out_features):$/;"	m	class:HiddenLayer
+__init__	c1_nn_and_dl/w3/planar_data_classification.py	/^  def __init__(self, in_features, out_features, hidden_units, n_layer):$/;"	m	class:Net
+__init__	c1_nn_and_dl/w4/dnn.py	/^  def __init__(self, in_features, out_features):$/;"	m	class:HiddenLayer
+__init__	c1_nn_and_dl/w4/dnn.py	/^  def __init__(self, in_features, out_features, hidden_units, n_layer):$/;"	m	class:Net
+__init__	c2_improving_dnn/w1/reg.py	/^  def __init__(self, in_features, out_features):$/;"	m	class:HiddenLayer
+__init__	c2_improving_dnn/w1/reg.py	/^  def __init__(self, in_features, out_features, hidden_units, n_layer):$/;"	m	class:Net
+__init__	c2_improving_dnn/w2/opt.py	/^  def __init__(self, in_features, out_features):$/;"	m	class:HiddenLayer
+__init__	c2_improving_dnn/w2/opt.py	/^  def __init__(self, in_features, out_features, hidden_units, n_layer):$/;"	m	class:Net
+__init__	c2_improving_dnn/w3/handsign.py	/^  def __init__(self, in_features, out_features):$/;"	m	class:HiddenLayer
+__init__	c2_improving_dnn/w3/handsign.py	/^  def __init__(self, in_features, out_features, hidden_units, n_layer):$/;"	m	class:Net
+__init__	c4_cnn/w2/model.py	/^  def __init__(self, num_classes):$/;"	m	class:CNN_0
+acc_fn	c2_improving_dnn/w1/reg.py	/^  acc_fn    = Accuracy(task='binary', num_classes=out_features)$/;"	v
+acc_fn	c2_improving_dnn/w3/handsign.py	/^acc_fn    = Accuracy(task='multiclass', num_classes=out_features)$/;"	v
+acc_fn	c4_cnn/w2/train_0.py	/^acc_fn    = Accuracy(task='binary', num_classes=N_CLASSES)$/;"	v
+backward_propagation	c2_improving_dnn/w1/reg_utils.py	/^def backward_propagation(X, Y, cache):$/;"	f
+backward_propagation	c2_improving_dnn/w2/opt_utils.py	/^def backward_propagation(X, Y, cache):$/;"	f
+compute_cost	c1_nn_and_dl/w4/dnn_utils.py	/^def compute_cost(AL, Y):$/;"	f
+compute_cost	c2_improving_dnn/w1/reg_utils.py	/^def compute_cost(a3, Y):$/;"	f
+compute_cost	c2_improving_dnn/w2/opt_utils.py	/^def compute_cost(a3, Y):$/;"	f
+convert_to_one_hot	c2_improving_dnn/w3/handsign_utils.py	/^def convert_to_one_hot(Y, C):$/;"	f
+convert_to_one_hot	c4_cnn/w2/cnn_utils.py	/^def convert_to_one_hot(Y, C):$/;"	f
+datasets	c1_nn_and_dl/w3/planar_utils.py	/^import sklearn.datasets$/;"	i
+datasets	c2_improving_dnn/w1/reg_utils.py	/^import sklearn.datasets$/;"	i
+datasets	c2_improving_dnn/w2/opt_utils.py	/^import sklearn.datasets$/;"	i
+epochs	c2_improving_dnn/w1/reg.py	/^  epochs       = 10$/;"	v
+epochs	c2_improving_dnn/w3/handsign.py	/^epochs       = 100$/;"	v
+forward	c1_nn_and_dl/w2/logistic_regression.py	/^  def forward(self, x):$/;"	m	class:LR
+forward	c1_nn_and_dl/w3/planar_data_classification.py	/^  def forward(self, x):$/;"	m	class:HiddenLayer
+forward	c1_nn_and_dl/w3/planar_data_classification.py	/^  def forward(self, x):$/;"	m	class:Net
+forward	c1_nn_and_dl/w4/dnn.py	/^  def forward(self, x):$/;"	m	class:HiddenLayer
+forward	c1_nn_and_dl/w4/dnn.py	/^  def forward(self, x):$/;"	m	class:Net
+forward	c2_improving_dnn/w1/reg.py	/^  def forward(self, x):$/;"	m	class:HiddenLayer
+forward	c2_improving_dnn/w1/reg.py	/^  def forward(self, x):$/;"	m	class:Net
+forward	c2_improving_dnn/w2/opt.py	/^  def forward(self, x):$/;"	m	class:HiddenLayer
+forward	c2_improving_dnn/w2/opt.py	/^  def forward(self, x):$/;"	m	class:Net
+forward	c2_improving_dnn/w3/handsign.py	/^  def forward(self, x):$/;"	m	class:HiddenLayer
+forward	c2_improving_dnn/w3/handsign.py	/^  def forward(self, x):$/;"	m	class:Net
+forward	c4_cnn/w2/model.py	/^  def forward(self, x):$/;"	m	class:CNN_0
+forward_propagation	c2_improving_dnn/w1/reg_utils.py	/^def forward_propagation(X, parameters):$/;"	f
+forward_propagation	c2_improving_dnn/w2/opt_utils.py	/^def forward_propagation(X, parameters):$/;"	f
+forward_propagation_for_predict	c4_cnn/w2/cnn_utils.py	/^def forward_propagation_for_predict(X, parameters):$/;"	f
+h5py	c1_nn_and_dl/w2/lr_utils.py	/^import h5py$/;"	i
+h5py	c1_nn_and_dl/w4/dnn_utils.py	/^import h5py$/;"	i
+h5py	c2_improving_dnn/w1/reg_utils.py	/^import h5py$/;"	i
+h5py	c2_improving_dnn/w2/opt_utils.py	/^import h5py$/;"	i
+h5py	c2_improving_dnn/w3/handsign_utils.py	/^import h5py$/;"	i
+h5py	c4_cnn/w2/cnn_utils.py	/^import h5py$/;"	i
+hidden_units	c2_improving_dnn/w1/reg.py	/^  hidden_units = 5$/;"	v
+hidden_units	c2_improving_dnn/w3/handsign.py	/^hidden_units = 10$/;"	v
+in_features	c2_improving_dnn/w1/reg.py	/^  in_features  = 2$/;"	v
+in_features	c2_improving_dnn/w3/handsign.py	/^in_features  = 64*64*3$/;"	v
+initialize_parameters	c1_nn_and_dl/w4/dnn_utils.py	/^def initialize_parameters(n_x, n_h, n_y):$/;"	f
+initialize_parameters	c2_improving_dnn/w1/reg_utils.py	/^def initialize_parameters(layer_dims):$/;"	f
+initialize_parameters	c2_improving_dnn/w2/opt_utils.py	/^def initialize_parameters(layer_dims):$/;"	f
+initialize_parameters_deep	c1_nn_and_dl/w4/dnn_utils.py	/^def initialize_parameters_deep(layer_dims):$/;"	f
+io	c2_improving_dnn/w1/reg_utils.py	/^import scipy.io$/;"	i
+io	c2_improving_dnn/w2/opt_utils.py	/^import scipy.io$/;"	i
+k_folds	c2_improving_dnn/w3/handsign.py	/^k_folds      = 5         # k-fold cross-validation$/;"	v
+lambd	c2_improving_dnn/w1/reg.py	/^  lambd        = 0.0000001 # hyperparameter for l2 reg$/;"	v
+lambd	c2_improving_dnn/w3/handsign.py	/^lambd        = 0.12121   # hyperparameter for l2 reg$/;"	v
+linear_activation_backward	c1_nn_and_dl/w4/dnn_utils.py	/^def linear_activation_backward(dA, cache, activation):$/;"	f
+linear_activation_forward	c1_nn_and_dl/w4/dnn_utils.py	/^def linear_activation_forward(A_prev, W, b, activation):$/;"	f
+linear_backward	c1_nn_and_dl/w4/dnn_utils.py	/^def linear_backward(dZ, cache):$/;"	f
+linear_forward	c1_nn_and_dl/w4/dnn_utils.py	/^def linear_forward(A, W, b):$/;"	f
+linear_model	c1_nn_and_dl/w3/planar_utils.py	/^import sklearn.linear_model$/;"	i
+linear_model	c2_improving_dnn/w1/reg_utils.py	/^import sklearn.linear_model$/;"	i
+load_2D_dataset	c2_improving_dnn/w1/reg.py	/^from reg_utils import load_2D_dataset$/;"	i
+load_2D_dataset	c2_improving_dnn/w1/reg_utils.py	/^def load_2D_dataset():$/;"	f
+load_2D_dataset	c2_improving_dnn/w2/opt_utils.py	/^def load_2D_dataset():$/;"	f
+load_data	c1_nn_and_dl/w2/logistic_regression.py	/^def load_data():$/;"	f
+load_data	c1_nn_and_dl/w3/planar_data_classification.py	/^def load_data():$/;"	f
+load_data	c1_nn_and_dl/w4/dnn.py	/^from dnn_utils import load_data$/;"	i
+load_data	c1_nn_and_dl/w4/dnn_utils.py	/^def load_data():$/;"	f
+load_data	c2_improving_dnn/w1/reg.py	/^def load_data():$/;"	f
+load_data	c2_improving_dnn/w2/opt.py	/^def load_data():$/;"	f
+load_data	c4_cnn/w2/data_setup.py	/^def load_data(batch_size):$/;"	f
+load_data	c4_cnn/w2/train_0.py	/^from data_setup import load_data$/;"	i
+load_dataset	c1_nn_and_dl/w2/logistic_regression.py	/^from lr_utils import load_dataset$/;"	i
+load_dataset	c1_nn_and_dl/w2/lr_utils.py	/^def load_dataset():$/;"	f
+load_dataset	c1_nn_and_dl/w4/dnn.py	/^def load_dataset():$/;"	f
+load_dataset	c2_improving_dnn/w1/reg_utils.py	/^def load_dataset():$/;"	f
+load_dataset	c2_improving_dnn/w2/opt.py	/^from opt_utils import load_dataset$/;"	i
+load_dataset	c2_improving_dnn/w2/opt_utils.py	/^def load_dataset():$/;"	f
+load_dataset	c2_improving_dnn/w3/handsign.py	/^from handsign_utils import load_dataset$/;"	i
+load_dataset	c2_improving_dnn/w3/handsign_utils.py	/^def load_dataset():$/;"	f
+load_extra_datasets	c1_nn_and_dl/w3/planar_utils.py	/^def load_extra_datasets():$/;"	f
+load_happy_dataset	c4_cnn/w2/cnn_utils.py	/^def load_happy_dataset():$/;"	f
+load_happy_dataset	c4_cnn/w2/data_setup.py	/^from cnn_utils import load_happy_dataset$/;"	i
+load_params_and_grads	c2_improving_dnn/w2/opt_utils.py	/^def load_params_and_grads(seed=1):$/;"	f
+load_planar_dataset	c1_nn_and_dl/w3/planar_data_classification.py	/^from planar_utils import load_planar_dataset$/;"	i
+load_planar_dataset	c1_nn_and_dl/w3/planar_utils.py	/^def load_planar_dataset():$/;"	f
+load_planar_dataset	c2_improving_dnn/w1/reg_utils.py	/^def load_planar_dataset(randomness, seed):$/;"	f
+load_planar_dataset	c2_improving_dnn/w1/reg_utils.py	/^def load_planar_dataset(seed):$/;"	f
+load_signs_dataset	c4_cnn/w2/cnn_utils.py	/^def load_signs_dataset():$/;"	f
+loss_fn	c2_improving_dnn/w1/reg.py	/^  loss_fn   = nn.BCELoss()$/;"	v
+loss_fn	c2_improving_dnn/w3/handsign.py	/^loss_fn   = nn.CrossEntropyLoss()$/;"	v
+loss_fn	c4_cnn/w2/train_0.py	/^loss_fn   = nn.BCELoss()$/;"	v
+lr	c2_improving_dnn/w3/handsign.py	/^lr = 0.005$/;"	v
+math	c2_improving_dnn/w3/handsign_utils.py	/^import math$/;"	i
+math	c4_cnn/w2/cnn_utils.py	/^import math$/;"	i
+matplotlib	c1_nn_and_dl/w3/planar_utils.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	c1_nn_and_dl/w4/dnn_utils.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	c2_improving_dnn/w1/reg_utils.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	c2_improving_dnn/w2/opt_utils.py	/^import matplotlib.pyplot as plt$/;"	i
+matplotlib	c4_cnn/w2/cnn_utils.py	/^import matplotlib.pyplot as plt$/;"	i
+model	c2_improving_dnn/w1/reg.py	/^  model     = Net(in_features, out_features, hidden_units, n_layer)$/;"	v
+model	c2_improving_dnn/w3/handsign.py	/^model     = Net(in_features, out_features, hidden_units, n_layer)$/;"	v
+model	c4_cnn/w2/train_0.py	/^model     = CNN_0(N_CLASSES)$/;"	v
+momentum	c2_improving_dnn/w3/handsign.py	/^momentum     = 0.$/;"	v
+n_folds	c2_improving_dnn/w1/reg.py	/^  n_folds      = 10 # number of folds for k-fold cross-validation$/;"	v
+n_layer	c2_improving_dnn/w1/reg.py	/^  n_layer      = 3$/;"	v
+n_layer	c2_improving_dnn/w3/handsign.py	/^n_layer      = 2$/;"	v
+nn	c1_nn_and_dl/w2/logistic_regression.py	/^from torch import nn$/;"	i
+nn	c1_nn_and_dl/w3/planar_data_classification.py	/^from torch import nn$/;"	i
+nn	c1_nn_and_dl/w4/dnn.py	/^from torch import nn$/;"	i
+nn	c2_improving_dnn/w1/reg.py	/^from torch import nn$/;"	i
+nn	c2_improving_dnn/w2/opt.py	/^from torch import nn$/;"	i
+nn	c2_improving_dnn/w3/handsign.py	/^from torch import nn$/;"	i
+nn	c4_cnn/w2/engine_0.py	/^from torch import nn$/;"	i
+nn	c4_cnn/w2/model.py	/^from torch import nn$/;"	i
+nn	c4_cnn/w2/train_0.py	/^from torch import nn$/;"	i
+np	c1_nn_and_dl/w2/lr_utils.py	/^import numpy as np$/;"	i
+np	c1_nn_and_dl/w3/planar_utils.py	/^import numpy as np$/;"	i
+np	c1_nn_and_dl/w4/dnn_utils.py	/^import numpy as np$/;"	i
+np	c2_improving_dnn/w1/reg_utils.py	/^import numpy as np$/;"	i
+np	c2_improving_dnn/w2/opt_utils.py	/^import numpy as np$/;"	i
+np	c2_improving_dnn/w3/handsign.py	/^import numpy as np$/;"	i
+np	c2_improving_dnn/w3/handsign_utils.py	/^import numpy as np$/;"	i
+np	c4_cnn/w2/cnn_utils.py	/^import numpy as np$/;"	i
+optimizer	c2_improving_dnn/w1/reg.py	/^  optimizer = torch.optim.Adam(model.parameters(), lr=0.03, weight_decay=lambd)$/;"	v
+optimizer	c2_improving_dnn/w3/handsign.py	/^optimizer    = torch.optim.SGD(model.parameters(), lr=lr, momentum=momentum, weight_decay=lambd)$/;"	v
+optimizer	c4_cnn/w2/train_0.py	/^optimizer = torch.optim.Adam(model.parameters(), lr=LR)$/;"	v
+out_features	c2_improving_dnn/w1/reg.py	/^  out_features = 1$/;"	v
+out_features	c2_improving_dnn/w3/handsign.py	/^out_features = 6$/;"	v
+plot_decision_boundary	c1_nn_and_dl/w3/planar_utils.py	/^def plot_decision_boundary(model, X, y):$/;"	f
+plot_decision_boundary	c2_improving_dnn/w1/reg_utils.py	/^def plot_decision_boundary(model, X, y):$/;"	f
+plot_decision_boundary	c2_improving_dnn/w2/opt_utils.py	/^def plot_decision_boundary(model, X, y):$/;"	f
+plt	c1_nn_and_dl/w3/planar_utils.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	c1_nn_and_dl/w4/dnn_utils.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	c2_improving_dnn/w1/reg_utils.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	c2_improving_dnn/w2/opt_utils.py	/^import matplotlib.pyplot as plt$/;"	i
+plt	c4_cnn/w2/cnn_utils.py	/^import matplotlib.pyplot as plt$/;"	i
+predict	c1_nn_and_dl/w4/dnn_utils.py	/^def predict(X, y, parameters):$/;"	f
+predict	c2_improving_dnn/w1/reg_utils.py	/^def predict(X, y, parameters):$/;"	f
+predict	c2_improving_dnn/w2/opt_utils.py	/^def predict(X, y, parameters):$/;"	f
+predict	c4_cnn/w2/cnn_utils.py	/^def predict(X, parameters):$/;"	f
+predict_dec	c2_improving_dnn/w1/reg_utils.py	/^def predict_dec(parameters, X):$/;"	f
+predict_dec	c2_improving_dnn/w2/opt_utils.py	/^def predict_dec(parameters, X):$/;"	f
+print_mislabeled_images	c1_nn_and_dl/w4/dnn_utils.py	/^def print_mislabeled_images(classes, X, y, p):$/;"	f
+random	c2_improving_dnn/w3/handsign.py	/^import random$/;"	i
+random_mini_batches	c2_improving_dnn/w3/handsign_utils.py	/^def random_mini_batches(X, Y, mini_batch_size = 64, seed = 0):$/;"	f
+random_mini_batches	c4_cnn/w2/cnn_utils.py	/^def random_mini_batches(X, Y, mini_batch_size=64, seed=0):$/;"	f
+relu	c1_nn_and_dl/w4/dnn_utils.py	/^def relu(Z):$/;"	f
+relu	c2_improving_dnn/w1/reg_utils.py	/^def relu(x):$/;"	f
+relu	c2_improving_dnn/w2/opt_utils.py	/^def relu(x):$/;"	f
+relu_backward	c1_nn_and_dl/w4/dnn_utils.py	/^def relu_backward(dA, cache):$/;"	f
+scipy	c2_improving_dnn/w1/reg_utils.py	/^import scipy.io$/;"	i
+scipy	c2_improving_dnn/w2/opt_utils.py	/^import scipy.io$/;"	i
+sigmoid	c1_nn_and_dl/w3/planar_utils.py	/^def sigmoid(x):$/;"	f
+sigmoid	c1_nn_and_dl/w4/dnn_utils.py	/^def sigmoid(Z):$/;"	f
+sigmoid	c2_improving_dnn/w1/reg_utils.py	/^def sigmoid(x):$/;"	f
+sigmoid	c2_improving_dnn/w2/opt_utils.py	/^def sigmoid(x):$/;"	f
+sigmoid_backward	c1_nn_and_dl/w4/dnn_utils.py	/^def sigmoid_backward(dA, cache):$/;"	f
+sklearn	c1_nn_and_dl/w3/planar_utils.py	/^import sklearn$/;"	i
+sklearn	c1_nn_and_dl/w3/planar_utils.py	/^import sklearn.datasets$/;"	i
+sklearn	c1_nn_and_dl/w3/planar_utils.py	/^import sklearn.linear_model$/;"	i
+sklearn	c2_improving_dnn/w1/reg_utils.py	/^import sklearn$/;"	i
+sklearn	c2_improving_dnn/w1/reg_utils.py	/^import sklearn.datasets$/;"	i
+sklearn	c2_improving_dnn/w1/reg_utils.py	/^import sklearn.linear_model$/;"	i
+sklearn	c2_improving_dnn/w2/opt_utils.py	/^import sklearn$/;"	i
+sklearn	c2_improving_dnn/w2/opt_utils.py	/^import sklearn.datasets$/;"	i
+summary	c4_cnn/w2/model.py	/^from torchsummary import summary$/;"	i
+test_dev_split	c2_improving_dnn/w1/reg.py	/^def test_dev_split(test_set, n_folds):$/;"	f
+test_dev_split	c2_improving_dnn/w3/handsign.py	/^def test_dev_split(test_set, n_folds):$/;"	f
+test_loader	c2_improving_dnn/w3/handsign.py	/^test_loader  = DataLoader(test_set, batch_size=64)$/;"	v
+test_set	c2_improving_dnn/w3/handsign.py	/^test_set     = TensorDataset(x_test, y_test)$/;"	v
+test_step	c1_nn_and_dl/w2/logistic_regression.py	/^def test_step(model, test_loader, loss_fn, acc_fn):$/;"	f
+test_step	c1_nn_and_dl/w4/dnn.py	/^def test_step(model, test_loader, loss_fn, acc_fn):$/;"	f
+test_step	c2_improving_dnn/w1/reg.py	/^def test_step(model, test_loader, loss_fn, acc_fn):$/;"	f
+test_step	c2_improving_dnn/w2/opt.py	/^def test_step(model, test_loader, loss_fn, acc_fn):$/;"	f
+test_step	c2_improving_dnn/w3/handsign.py	/^def test_step(model, test_loader, loss_fn, acc_fn):$/;"	f
+test_step	c4_cnn/w2/engine_0.py	/^def test_step(model, test_loader, loss_fn, acc_fn):$/;"	f
+torch	c1_nn_and_dl/w2/logistic_regression.py	/^import torch$/;"	i
+torch	c1_nn_and_dl/w3/planar_data_classification.py	/^import torch$/;"	i
+torch	c1_nn_and_dl/w4/dnn.py	/^import torch$/;"	i
+torch	c2_improving_dnn/w1/reg.py	/^import torch$/;"	i
+torch	c2_improving_dnn/w2/opt.py	/^import torch$/;"	i
+torch	c2_improving_dnn/w3/handsign.py	/^import torch$/;"	i
+torch	c4_cnn/w2/data_setup.py	/^import torch$/;"	i
+torch	c4_cnn/w2/engine_0.py	/^import torch$/;"	i
+torch	c4_cnn/w2/train_0.py	/^import torch$/;"	i
+train	c1_nn_and_dl/w2/logistic_regression.py	/^def train(model, train_loader, test_loader, optimizer, loss_fn, acc_fn, epochs):$/;"	f
+train	c1_nn_and_dl/w3/planar_data_classification.py	/^def train(model, train_loader, optimizer, loss_fn, acc_fn, epochs):$/;"	f
+train	c1_nn_and_dl/w4/dnn.py	/^def train(model, train_loader, test_loader, optimizer, loss_fn, acc_fn, epochs):$/;"	f
+train	c2_improving_dnn/w1/reg.py	/^def train(model, train_loader, test_set, optimizer, loss_fn, acc_fn, epochs, n_folds):$/;"	f
+train	c2_improving_dnn/w2/opt.py	/^def train(model, train_loader, optimizer, scheduler, loss_fn, acc_fn, epochs):$/;"	f
+train	c2_improving_dnn/w3/handsign.py	/^def train(model, train_dataloader, test_set, optimizer, loss_fn, acc_fn, epochs, n_folds, lr):$/;"	f
+train	c4_cnn/w2/engine_0.py	/^def train(model, train_loader, test_loader, optimizer, loss_fn, acc_fn, epochs):$/;"	f
+train	c4_cnn/w2/train_0.py	/^from engine_0 import train$/;"	i
+train_loader	c2_improving_dnn/w3/handsign.py	/^train_loader = DataLoader(train_set, batch_size=64, shuffle=True)$/;"	v
+train_set	c2_improving_dnn/w3/handsign.py	/^train_set    = TensorDataset(x_train, y_train)$/;"	v
+train_step	c1_nn_and_dl/w2/logistic_regression.py	/^def train_step(model, train_loader, optimizer, loss_fn, acc_fn):$/;"	f
+train_step	c1_nn_and_dl/w3/planar_data_classification.py	/^def train_step(model, train_loader, optimizer, loss_fn, acc_fn):$/;"	f
+train_step	c1_nn_and_dl/w4/dnn.py	/^def train_step(model, train_loader, optimizer, loss_fn, acc_fn):$/;"	f
+train_step	c2_improving_dnn/w1/reg.py	/^def train_step(model, train_loader, optimizer, loss_fn, acc_fn):$/;"	f
+train_step	c2_improving_dnn/w2/opt.py	/^def train_step(model, train_loader, optimizer, loss_fn, acc_fn):$/;"	f
+train_step	c2_improving_dnn/w3/handsign.py	/^def train_step(model, train_loader, optimizer, loss_fn, acc_fn):$/;"	f
+train_step	c4_cnn/w2/engine_0.py	/^def train_step(model, train_loader, optimizer, loss_fn, acc_fn):$/;"	f
+update_parameters	c1_nn_and_dl/w4/dnn_utils.py	/^def update_parameters(parameters, grads, learning_rate):$/;"	f
+update_parameters	c2_improving_dnn/w1/reg_utils.py	/^def update_parameters(parameters, grads, learning_rate):$/;"	f
+x_test	c2_improving_dnn/w3/handsign.py	/^x_test       = torch.from_numpy(x_test_og).float()$/;"	v
+x_train	c2_improving_dnn/w3/handsign.py	/^x_train      = torch.from_numpy(x_train_og).float()$/;"	v
+y_test	c2_improving_dnn/w3/handsign.py	/^y_test       = torch.from_numpy(y_test_og.T).float()$/;"	v
+y_train	c2_improving_dnn/w3/handsign.py	/^y_train      = torch.from_numpy(y_train_og.T).float()$/;"	v
