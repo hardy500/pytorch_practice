@@ -6,20 +6,9 @@ from torchvision import datasets
 from torchvision import transforms
 from torch import nn
 
-### Settings ###
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-# Hyperparameters
-RANDOM_SEED = 0
-LR          = 0.01
-EPOCHS      = 10
-BS          = 128
-
-# Architecture
-N_CLASSES = 10
-
 
 ### MNIST DATASET ###
+BS            = 128
 train_dataset = datasets.MNIST(root='data',
                                train=True,
                                transform=transforms.ToTensor(),
@@ -46,7 +35,60 @@ test_loader = DataLoader(dataset=test_dataset,
 
 ### Model ###
 
-class ConvNet(nn.Module):
+class ResidualBlock(nn.Module):
+  def __init__(self, channels):
+    super().__init__()
+
+    self.block = nn.Sequential(
+      nn.Conv2d(in_channels=channels[0],
+                out_channels=channels[1],
+                kernel_size=3,
+                stride=2,
+                padding=1),
+      nn.BatchNorm2d(channels[1]),
+
+      nn.ReLU(inplace=True),
+
+      nn.Conv2d(in_channels=channels[1],
+                out_channels=channels[2],
+                kernel_size=1,
+                stride=1,
+                padding=0),
+      nn.BatchNorm2d(channels[2])
+    )
+
+    self.shortcut = nn.Sequential(
+      nn.Conv2d(in_channels=channels[0],
+                out_channels=channels[2],
+                kernel_size=1,
+                stride=2,
+                padding=0),
+      nn.BatchNorm2d(channels[2])
+    )
+
+  def forward(self, x):
+    shortcut = x
+    block    = self.block(x)
+    shortcut = self.shortcut(x)
+    x        = nn.functional.relu(block + shortcut)
+    return x
+
+class ConvNet2(nn.Module):
+  def __init__(self, n_classes):
+    super().__init__()
+
+    self.res_block_1 = ResidualBlock(channels=[1, 4, 8])
+    self.res_block_2 = ResidualBlock(channels=[8, 16, 32])
+
+    self.linear_1    = nn.Linear(7*7*32, n_classes)
+
+  def forward(self, x):
+    out    = self.res_block_1(x)
+    out    = self.res_block_2(out)
+    logits = self.linear_1(out.view(-1, 7*7*32))
+    return logits
+
+class IdBlock(nn.Module):
   def __init__(self, n_classes):
     super().__init__()
 
@@ -107,7 +149,7 @@ class ConvNet(nn.Module):
     logits = self.linear_1(x.view(-1, 1*28*28))
     return logits
 
-def accuracy(mode, data_loader):
+def accuracy(model, data_loader):
   correct_pred, num_examples = 0, 0
   for i, (x, y) in enumerate(data_loader):
     x, y = x.to(DEVICE), y.to(DEVICE)
@@ -120,8 +162,19 @@ def accuracy(mode, data_loader):
   return correct_pred.float()/num_examples
 
 
+### Settings ###
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+# Hyperparameters
+RANDOM_SEED = 0
+LR          = 0.01
+EPOCHS      = 1
+
+# Architecture
+N_CLASSES = 10
+
 torch.manual_seed(RANDOM_SEED)
-model = ConvNet(n_classes=N_CLASSES)
+model = ConvNet2(n_classes=N_CLASSES)
 model = model.to(DEVICE)
 optimizer = torch.optim.Adam(model.parameters(), lr=LR)
 
